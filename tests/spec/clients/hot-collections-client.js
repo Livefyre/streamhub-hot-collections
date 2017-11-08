@@ -37,7 +37,7 @@ function (jasmine, HotCollectionsClient) {
                 runs(function () {
                     var requestedUrl = client._get.mostRecentCall.args[0];
                     expect(requestedUrl)
-                        .toBe('https://bootstrap.labs-t402.fyre.co/api/v3.0/hottest/');
+                        .toBe('https://labs-t402.bootstrap.fyre.co/api/v3.0/hottest/');
                 });
             });
             it('can be optionally passed a siteId', function () {
@@ -54,7 +54,7 @@ function (jasmine, HotCollectionsClient) {
                     var requestedUrl = client._get.mostRecentCall.args[0];
                     var queryParams = client._get.mostRecentCall.args[1];
                     expect(requestedUrl)
-                        .toBe('https://bootstrap.labs-t402.fyre.co/api/v3.0/hottest/');
+                        .toBe('https://labs-t402.bootstrap.fyre.co/api/v3.0/hottest/');
                     expect(queryParams.site).toBe(opts.siteId);
                 });
             });
@@ -72,7 +72,7 @@ function (jasmine, HotCollectionsClient) {
                     var requestedUrl = client._get.mostRecentCall.args[0];
                     var queryParams = client._get.mostRecentCall.args[1];
                     expect(requestedUrl)
-                        .toBe('https://bootstrap.labs-t402.fyre.co/api/v3.0/hottest/');
+                        .toBe('https://labs-t402.bootstrap.fyre.co/api/v3.0/hottest/');
                     expect(queryParams.tag).toBe(opts.tag);
                 });
             });
@@ -90,7 +90,7 @@ function (jasmine, HotCollectionsClient) {
                     var requestedUrl = client._get.mostRecentCall.args[0];
                     var queryParams = client._get.mostRecentCall.args[1];
                     expect(requestedUrl)
-                        .toBe('https://bootstrap.labs-t402.fyre.co/api/v3.0/hottest/');
+                        .toBe('https://labs-t402.bootstrap.fyre.co/api/v3.0/hottest/');
                     expect(queryParams.number).toBe(opts.count);
                 });
             });
