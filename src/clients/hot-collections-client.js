@@ -25,10 +25,8 @@ define(['streamhub-sdk/jquery'], function($) {
         isLocaldev = opts.environment && opts.environment === 'fyre';
 
         var url = [
-            'http://bootstrap.',
-            (opts.network === 'livefyre.com') ?
-                opts.environment || 'livefyre.com' :
-                opts.network,
+            'https://',
+            this.getDomain(opts),
             '/api/v3.0/hottest/'
         ].join('');
 
@@ -45,6 +43,19 @@ define(['streamhub-sdk/jquery'], function($) {
             }
             callback(null, data);
         });
+    };
+
+    /**
+     * Get the domain based on network and environment. Needs to be able to
+     * support SSL, so custom networks need <network>.bootstrap.fyre.co.
+     * @param {Object} opts
+     * @return {string}
+     */
+    HotCollectionsClient.prototype.getDomain = function (opts) {
+        if (opts.network === 'livefyre.com') {
+            return 'bootstrap.' + (opts.environment || 'livefyre.com');
+        }
+        return opts.network.split('.fyre.co')[0] + '.bootstrap.fyre.co';
     };
 
     /**
